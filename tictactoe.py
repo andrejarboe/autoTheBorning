@@ -133,7 +133,7 @@ def checkRows():
 	row3 = board['low-L'] == board['low-M'] == board['low-R'] != ' '
 
 	if row1 or row2 or row3:
-		gameIsStillGoing = false
+		gameIsStillGoing = False
 	if row1:
 		return board['top-L']
 	elif row2:
@@ -149,7 +149,7 @@ def checkColumns():
 	column3 = board['top-R'] == board['mid-R'] == board['low-R'] != ' '
 
 	if column1 or column2 or column3:
-		gameIsStillGoing = false
+		gameIsStillGoing = False
 	if column1:
 		return board['top-L']
 	elif column2:
@@ -164,7 +164,7 @@ def checkDiagonals():
 	diagonal2 = ['low-L'] == board['mid-M'] == board['top-R'] != ' '
 
 	if diagonal1 or diagonal2:
-		gameIsStillGoing = false
+		gameIsStillGoing = False
 	if diagonal1:
 		return board['top-L']
 	elif diagonal2:
