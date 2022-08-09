@@ -99,19 +99,54 @@ def playGame():
 
 
 def handleTurn(player):
-	position = input('make a move (top-, mid-, low- & L, M, R)')
+	position = input('make a move (top-, mid-, low- & L, M, R): ')
 	board[position] = 'X'
 	displayBoard()
 
 def checkGameOver():
-	checkWin()
+	checkForWinner()
 	checkTie()
 
-def checkWin():
+def checkForWinner():
+	#set global variables
+	global winer
+
 	#check rows
+	rowWinner = checkRows()
 	#check columns
+	columnWinner = checkColumns()
 	#check diagonals
+	diagonalsWinner = checkDiagonals()
+
+	if rowWinner:
+		winner = rowWinner
+	elif columnWinner:
+		winner = columnWinner
+	elif diagonalsWinner:
+		winner = diagonalsWinner
 	return 
+
+def checkRows():
+	global gameIsStillGoing
+	row1 = board[0] == board[1] == board[2] != ' '
+	row2 = board[3] == board[4] == board[5] != ' '
+	row3 = board[6] == board[7] == board[8] != ' '
+
+	if row1 or row2 or row3:
+		gameIsStillGoing = false
+	if row1:
+		return board[0]
+	elif row2:
+		return board[3]
+	elif row3:
+		return board[6]
+	return
+
+def checkColumns():
+	return
+
+def checkDiagonals():
+	return
 
 def changeTurn():
 	return
@@ -121,6 +156,7 @@ def checkTie():
 
 def changTurn():
 	return
+
 
 
 #the game
