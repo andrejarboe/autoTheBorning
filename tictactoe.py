@@ -70,9 +70,13 @@ currentPlayer = 'X'
 
 #board
 board = {
-	'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
-	'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
-	'low-L': ' ', 'low-M': ' ', 'low-R': ' ',
+	#'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+	#'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+	#'low-L': ' ', 'low-M': ' ', 'low-R': ' ',
+
+	'top-L': 'X', 'top-M': 'X', 'top-R': 'O',
+	'mid-L': 'O', 'mid-M': 'O', 'mid-R': 'X',
+	'low-L': 'X', 'low-M': 'O', 'low-R': ' ',
 } 
 
 #display board
@@ -97,10 +101,10 @@ def playGame():
 	elif winner == None:
 		print('Game has ended in a draw...')
 
-
+#handle a single turn of an arbitary player
 def handleTurn(player):
 	position = input('make a move (top-, mid-, low- & L, M, R): ')
-	board[position] = 'X'
+	board[position] = player
 	displayBoard()
 
 def checkGameOver():
@@ -172,9 +176,21 @@ def checkDiagonals():
 	return
 
 def changeTurn():
-	return
+	global currentPlayer
+
+	#toggle the player between X and O
+	if currentPlayer == 'X':
+		currentPlayer = 'O'
+	elif currentPlayer == 'O':
+		currentPlayer = 'X'
+
+	return currentPlayer
 
 def checkTie():
+	global gameIsStillGoing
+
+	if ' ' not in board:
+		gameIsStillGoing = False
 	return
 
 def changTurn():
