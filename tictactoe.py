@@ -93,7 +93,7 @@ def playGame():
 
 	#game has ended
 	if winner == 'X' or winner == 'O':
-		print(winner + 'won!!!')
+		print(winner + ' won!!!')
 	elif winner == None:
 		print('Game has ended in a draw...')
 
@@ -109,7 +109,7 @@ def checkGameOver():
 
 def checkForWinner():
 	#set global variables
-	global winer
+	global winner
 
 	#check rows
 	rowWinner = checkRows()
@@ -160,8 +160,8 @@ def checkColumns():
 
 def checkDiagonals():
 	global gameIsStillGoing
-	diagonal1 = ['top-L'] == board['mid-M'] == board['low-R'] != ' '
-	diagonal2 = ['low-L'] == board['mid-M'] == board['top-R'] != ' '
+	diagonal1 = board['top-L'] == board['mid-M'] == board['low-R'] != ' '
+	diagonal2 = board['low-L'] == board['mid-M'] == board['top-R'] != ' '
 
 	if diagonal1 or diagonal2:
 		gameIsStillGoing = False
