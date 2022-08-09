@@ -159,6 +159,16 @@ def checkColumns():
 	return
 
 def checkDiagonals():
+	global gameIsStillGoing
+	diagonal1 = board[0] == board[4] == board[8] != ' '
+	diagonal2 = board[6] == board[4] == board[2] != ' '
+
+	if column1 or column2 or column3:
+		gameIsStillGoing = false
+	if diagonal1:
+		return board[0]
+	elif diagonal2:
+		return board[6]
 	return
 
 def changeTurn():
