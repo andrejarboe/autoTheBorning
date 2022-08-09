@@ -128,23 +128,23 @@ def checkForWinner():
 
 def checkRows():
 	global gameIsStillGoing
-	row1 = board[0] == board[1] == board[2] != ' '
-	row2 = board[3] == board[4] == board[5] != ' '
-	row3 = board[6] == board[7] == board[8] != ' '
+	row1 = board['top-L'] == board['top-M'] == board['top-R'] != ' '
+	row2 = board['mid-L'] == board['mid-M'] == board['mid-R'] != ' '
+	row3 = board['low-L'] == board['low-M'] == board['low-R'] != ' '
 
 	if row1 or row2 or row3:
 		gameIsStillGoing = false
 	if row1:
-		return board[0]
+		return board['top-L']
 	elif row2:
-		return board[3]
+		return board['mid-L']
 	elif row3:
-		return board[6]
+		return board['low-L']
 	return
 
 def checkColumns():
 	global gameIsStillGoing
-	column1 = board[0] == board[3] == board[6] != ' '
+	column1 = board[] == board[3] == board[6] != ' '
 	column2 = board[1] == board[4] == board[7] != ' '
 	column3 = board[2] == board[5] == board[8] != ' '
 
