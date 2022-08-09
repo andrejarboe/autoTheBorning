@@ -70,13 +70,9 @@ currentPlayer = 'X'
 
 #board
 board = {
-	#'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
-	#'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
-	#'low-L': ' ', 'low-M': ' ', 'low-R': ' ',
-
-	'top-L': 'X', 'top-M': 'X', 'top-R': 'O',
-	'mid-L': 'O', 'mid-M': 'O', 'mid-R': 'X',
-	'low-L': 'X', 'low-M': 'O', 'low-R': ' ',
+	'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+	'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+	'low-L': ' ', 'low-M': ' ', 'low-R': ' ',
 } 
 
 #display board
@@ -103,7 +99,14 @@ def playGame():
 
 #handle a single turn of an arbitary player
 def handleTurn(player):
+	print(f'''It's {player}'s trun.''')
 	position = input('make a move (top-, mid-, low- & L, M, R): ')
+
+	if position not in board.keys():
+		print('Invalid input...')
+		position = input('make a move (top-, mid-, low- & L, M, R): ')
+
+
 	board[position] = player
 	displayBoard()
 
