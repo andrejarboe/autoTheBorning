@@ -144,18 +144,18 @@ def checkRows():
 
 def checkColumns():
 	global gameIsStillGoing
-	column1 = board[] == board[3] == board[6] != ' '
-	column2 = board[1] == board[4] == board[7] != ' '
-	column3 = board[2] == board[5] == board[8] != ' '
+	column1 = board['top-L'] == board['mid-L'] == board['low-L'] != ' '
+	column2 = board['top-M'] == board['mid-M'] == board['low-M'] != ' '
+	column3 = board['top-R'] == board['mid-R'] == board['low-R'] != ' '
 
 	if column1 or column2 or column3:
 		gameIsStillGoing = false
 	if column1:
-		return board[0]
+		return board['top-L']
 	elif column2:
-		return board[1]
+		return board['top-M']
 	elif column3:
-		return board[2]
+		return board['top-R']
 	return
 
 def checkDiagonals():
