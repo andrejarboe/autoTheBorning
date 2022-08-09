@@ -102,7 +102,7 @@ def handleTurn(player):
 	print(f'''It's {player}'s trun.''')
 	position = input('make a move (top-, mid-, low- & L, M, R): ')
 
-	if position not in board.keys():
+	while position not in board.keys():
 		print('Invalid input...')
 		position = input('make a move (top-, mid-, low- & L, M, R): ')
 
