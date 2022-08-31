@@ -17,3 +17,10 @@ sudo pip3 install pyperclip
 To verify if the pyperclip package has been successfully installed in your system run the below command in the terminal:
 
 python3 -m pip show pyperclip 
+
+## Shebang Line:
+Windows: #! python3
+OS X: #! #!/usr/bin/env python3
+Linux: #!/usr/bin/ python3
+maybe"
+Linux: #!/usr/bin/env python3
